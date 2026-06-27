@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreelancerCopilot</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="tab-bar">
+  <button class="tab-btn active" id="analyzeTabBtn">Analyze</button>
+  <button class="tab-btn" id="historyTabBtn">History</button>
+</div>
+
+<div id="gateMessage" class="gate-message"></div>
+
+<div id="analyzePanel">
+  <div class="container">
+    <div class="header">
+      <h1>FreelancerCopilot</h1>
+    </div>
+
+    <div class="job-input-section">
+      <button id="scanBtn" class="scan-btn">Scan This Job</button>
+    </div>
+
+    <div class="loader" id="loader">
+      <div class="spinner"></div>
+      <p class="loader-text">Analyzing job posting...</p>
+    </div>
+
+    <div class="error-message" id="errorMessage"></div>
+
+    <div class="results-section" id="resultsSection">
+      <div class="result-card">
+        <h3>Recommendation</h3>
+        <div id="bidBadge" class="bid-badge"></div>
+        <div class="confidence-score" id="confidenceScore"></div>
+        <p class="reason-text" id="reasonText"></p>
+      </div>
+
+      <div class="result-card">
+        <h3>Job Details</h3>
+        <div class="details-grid">
+          <div class="detail-item">
+            <span class="detail-label">Client Score</span>
+            <span class="detail-value" id="clientScore"></span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Est. Hours</span>
+            <span class="detail-value" id="estimatedHours"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-card">
+        <h3>Proposal Draft</h3>
+        <p class="proposal-text" id="proposalText"></p>
+      </div>
+
+      <div class="result-card">
+        <h3>Suggested Price Range</h3>
+        <p class="price-range" id="priceRange"></p>
+      </div>
+
+      <div class="result-card">
+        <h3>Red Flags</h3>
+        <ul class="red-flags-list" id="redFlagsList"></ul>
+      </div>
+
+      <button id="reanalyzeBtn" class="reanalyze-btn">Re-analyze</button>
+
+      <div class="outcome-buttons" id="outcomeButtons">
+        <button id="wonBtn" class="outcome-btn won">I Won This Job</button>
+        <button id="lostBtn" class="outcome-btn lost">I Lost This Job</button>
+      </div>
+    </div>
+
+    <div class="success-message" id="successMessage"></div>
+  </div>
+</div><!-- /analyzePanel -->
+
+<div id="historyPanel" style="display:none">
+  <div class="container">
+    <div id="historyList"></div>
+  </div>
+</div>
+
+  <script src="config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
